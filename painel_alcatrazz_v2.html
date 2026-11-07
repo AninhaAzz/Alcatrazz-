@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100807">
+<title>ALCATRAZZ | Priston Tale Mobile</title>
+<style>
+:root{--bg:#100807;--panel:#1b100e;--panel2:#24130f;--red:#a92319;--red2:#e0442d;--gold:#f0c477;--gold2:#c58b43;--muted:#c9b8ae;--line:#6c3026;--green:#79d6a0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% 0,#32150f 0,#160b09 42%,#0c0706 100%);color:#f8eee8;font-family:Arial,sans-serif}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px max(4%,calc((100% - 1120px)/2));border-bottom:1px solid #743126;background:#120908}
+.brand{display:flex;align-items:center;gap:16px}.crest{width:68px;height:68px;border:2px solid var(--gold2);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-family:Georgia,serif;font-weight:bold;font-size:24px;background:radial-gradient(circle,#642018,#170908);box-shadow:0 0 20px #b33b2455}.brand h1{margin:0;color:var(--gold);font: bold 32px Georgia,serif;letter-spacing:4px}.brand p{margin:5px 0 0;color:#d6c3b5;letter-spacing:3px;line-height:1.5;font-size:13px}
+button,.nav button{border:1px solid #a94732;border-radius:12px;padding:12px 17px;background:linear-gradient(130deg,#a82218,#64140f);color:#fff;font-weight:bold;font-size:15px;cursor:pointer;box-shadow:0 5px 18px #0005}button:hover{filter:brightness(1.15)}button.secondary{background:#261613;border-color:#71382d;color:#f5e8df}button.danger{background:#4b1717;border-color:#8e3333}
+main{width:min(1120px,92%);margin:24px auto 50px}
+.hero{min-height:245px;border:1px solid #873b2b;border-radius:28px;padding:42px 38px;display:flex;align-items:center;background:linear-gradient(90deg,#160806ee,#1b0908b8),url('') center/cover,radial-gradient(ellipse at 80% 50%,#63261c,#170907 70%);box-shadow:inset 0 0 45px #0008,0 12px 35px #0006}
+.hero h2{max-width:650px;margin:0;color:#ffd18a;font: bold clamp(30px,5vw,48px)/1.12 Georgia,serif;text-transform:uppercase}.hero p{margin:18px 0 0;color:#ead7c9;letter-spacing:2px;font-size:17px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:26px 0}.stat,.panel{background:linear-gradient(145deg,#21120f,#130b09);border:1px solid #71372b;border-radius:24px;box-shadow:0 10px 28px #0005}.stat{padding:22px}.stat strong{display:block;color:var(--gold);font-size:36px;margin-bottom:8px}.stat span{color:#cbbab1;line-height:1.5;font-size:16px;text-transform:uppercase}
+.nav{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0}.nav button{font-size:20px;padding:15px 22px;background:#180e0c;border-color:#663126}.nav button.active{background:linear-gradient(130deg,#bd3323,#74170f);border-color:#f07856}
+.panel{padding:28px;margin-top:20px}.panel h2{margin:0 0 18px;color:#f2c987;font: bold 29px Georgia,serif;letter-spacing:1px}.intro{font-size:19px;color:#d9c9bf;line-height:1.55;max-width:850px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{color:#e4c8aa;font-size:13px}input,select,textarea{width:100%;padding:13px;border-radius:9px;border:1px solid #704237;background:#100a09;color:#fff;font:inherit}textarea{min-height:95px;resize:vertical}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.notice{color:#bdaaa0;font-size:12px;line-height:1.6;margin-top:14px}
+.member-list,.record-list,.event-list{display:grid;gap:12px}.member,.record,.event{padding:16px;background:#211411;border:1px solid #63352c;border-radius:13px;display:flex;justify-content:space-between;align-items:center;gap:14px}.member strong,.record strong,.event strong{color:var(--gold);font-size:17px}.member small,.record small,.event small{display:block;color:#c5b2a8;margin-top:5px;line-height:1.5}.tag{display:inline-block;border:1px solid #986d3b;color:#f1d49c;border-radius:20px;padding:5px 9px;font-size:11px}.empty{text-align:center;color:#b9a69b;padding:22px;border:1px dashed #684036;border-radius:12px}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:13px;border-bottom:1px solid #553027}th{color:var(--gold)}td{color:#eadbd2}
+.hidden{display:none!important}.section{scroll-margin-top:20px}footer{text-align:center;padding:28px;color:#b49f94;border-top:1px solid #6c3026;background:#120908;line-height:1.8}
+@media(max-width:760px){header{padding:15px 4%;align-items:flex-start}.crest{width:58px;height:58px}.brand h1{font-size:25px;letter-spacing:3px}.brand p{font-size:11px;letter-spacing:2px}.admin-btn{padding:10px;font-size:12px}.hero{min-height:245px;padding:30px 24px}.stats{grid-template-columns:repeat(2,1fr);gap:12px}.stat{padding:18px}.stat strong{font-size:30px}.stat span{font-size:14px}.nav button{font-size:17px;padding:14px 17px}.panel{padding:22px}.panel h2{font-size:25px}.intro{font-size:17px}}
+@media(max-width:480px){.brand{gap:10px}.brand h1{font-size:20px;letter-spacing:2px}.brand p{font-size:9px;letter-spacing:1.5px}.crest{width:48px;height:48px;font-size:19px}.admin-btn{max-width:130px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.member{align-items:flex-start;flex-direction:column}.hero{padding:28px 22px}.hero p{font-size:14px}.stats{gap:10px}.stat{padding:15px}.stat span{font-size:12px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="crest">A</div><div><h1>ALCATRAZZ</h1><p>PRISTON TALE MOBILE<br>· ZEPHIRA WORLD</p></div></div>
+ <button class="admin-btn" onclick="document.getElementById('admin').scrollIntoView({behavior:'smooth'})">🔒 Administração</button>
+</header>
+<main>
+ <section class="hero section" id="inicio"><div><h2>Mais que um clã,<br>uma família.</h2><p>UNIÃO · FORÇA · EVOLUÇÃO</p></div></section>
+ <section class="stats">
+  <div class="stat"><strong id="totalMembers">0</strong><span>Membros cadastrados</span></div>
+  <div class="stat"><strong id="onlineMembers">0</strong><span>Jogadores online</span></div>
+  <div class="stat"><strong id="averageLevel">—</strong><span>Level médio</span></div>
+  <div class="stat"><strong id="eventCount">0</strong><span>Participações em eventos</span></div>
+ </section>
+ <nav class="nav">
+  <button class="active" data-target="inicio">⌂ Início</button><button data-target="members">♟ Membros</button><button data-target="ranking">🏆 Ranking</button><button data-target="events">⚔ Eventos</button>
+ </nav>
+ <section class="panel section" id="home"><h2>⚜ PAINEL DO CLÃ</h2><p class="intro">Bem-vindo ao espaço oficial do ALCATRAZZ. Aqui os integrantes podem consultar os membros, acompanhar níveis, experiência e participação nos eventos.</p><p class="notice">Este arquivo é a interface inicial. Os dados desta versão ficam neste navegador; para todos os jogadores acessarem a mesma informação, será necessário conectar um banco de dados online e autenticação segura.</p></section>
+ <section class="panel section" id="members"><h2>♟ MEMBROS DO CLÃ</h2><div id="memberList" class="member-list"><div class="empty">Nenhum membro cadastrado ainda.</div></div></section>
+ <section class="panel section" id="ranking"><h2>🏆 RANKING ALCATRAZZ</h2><div id="rankingList" class="empty">O ranking aparecerá quando houver membros cadastrados.</div></section>
+ <section class="panel section" id="events"><h2>⚔ EVENTOS DO CLÃ</h2><div id="eventList" class="event-list"><div class="empty">Nenhum evento cadastrado.</div></div></section>
+ <section class="panel section" id="admin"><h2>🔒 ADMINISTRAÇÃO</h2><p class="notice" style="margin-top:0">Área de gerenciamento local desta demonstração. Ainda não existe autenticação real: não use dados privados até conectar o backend seguro.</p>
+  <form id="memberForm"><h3 style="color:#f0c477;margin:18px 0 12px">Cadastrar membro</h3><div class="grid">
+   <div class="field"><label>Nome / apelido *</label><input id="name" maxlength="40" required placeholder="Nome no jogo"></div>
+   <div class="field"><label>Classe / função</label><select id="role"><option>Integrante</option><option>Recruta</option><option>Moderador</option><option>Líder</option></select></div>
+   <div class="field"><label>Level</label><input id="level" type="number" min="1" max="999" placeholder="Ex.: 120"></div>
+   <div class="field"><label>Pontos no ranking</label><input id="points" type="number" min="0" max="999999" value="0"></div>
+   <div class="field"><label>Status</label><select id="status"><option>Ativo</option><option>Inativo</option></select></div>
+   <div class="field"><label>Online?</label><select id="online"><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+   <div class="field full"><label>Apresentação</label><textarea id="bio" maxlength="250" placeholder="Informações do integrante"></textarea></div>
+  </div><div class="actions"><button type="submit">Adicionar membro</button></div></form>
+  <form id="eventForm" style="margin-top:30px"><h3 style="color:#f0c477;margin:18px 0 12px">Publicar evento / participação</h3><div class="grid">
+   <div class="field"><label>Nome do evento *</label><input id="eventName" required maxlength="70" placeholder="Ex.: Guerra de clãs"></div>
+   <div class="field"><label>Data</label><input id="eventDate" type="date"></div>
+   <div class="field full"><label>Descrição</label><textarea id="eventDescription" maxlength="400" placeholder="Detalhes do evento"></textarea></div>
+  </div><div class="actions"><button type="submit">Publicar evento</button></div></form>
+  <div class="actions"><button class="secondary" id="exportBtn" type="button">Exportar backup JSON</button><button class="danger" id="clearBtn" type="button">Apagar dados deste aparelho</button></div>
+ </section>
+</main>
+<footer><strong style="color:#f0c477">ALCATRAZZ — ZEPHIRA WORLD</strong><br>Nossa união, nossa história, nossa força.<br>© 2026 — Painel oficial do clã.</footer>
+<script>
+const KEY='alcatrazz_panel_v2';let data={members:[],events:[]};
+try{const raw=localStorage.getItem(KEY);if(raw){const parsed=JSON.parse(raw);if(Array.isArray(parsed.members)&&Array.isArray(parsed.events))data=parsed;}}catch(e){}
+const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function render(){
+ $('totalMembers').textContent=data.members.length;
+ $('onlineMembers').textContent=data.members.filter(m=>m.online==='Sim'&&m.status==='Ativo').length;
+ const levels=data.members.map(m=>Number(m.level)).filter(n=>n>0);$('averageLevel').textContent=levels.length?Math.round(levels.reduce((a,b)=>a+b,0)/levels.length):'—';
+ $('eventCount').textContent=data.events.length;
+ $('memberList').innerHTML=data.members.length?data.members.map(m=>`<article class="member"><div><strong>${esc(m.name)}</strong><small>${esc(m.role)} · Level ${esc(m.level||'—')} · ${esc(m.status)} · ${m.online==='Sim'?'🟢 Online':'⚫ Offline'}</small>${m.bio?`<small>${esc(m.bio)}</small>`:''}</div><span class="tag">${esc(m.points)} pts</span></article>`).join(''):'<div class="empty">Nenhum membro cadastrado ainda.</div>';
+ const sorted=[...data.members].sort((a,b)=>Number(b.points)-Number(a.points));
+ $('rankingList').innerHTML=sorted.length?`<table><thead><tr><th>#</th><th>Jogador</th><th>Level</th><th>Pontos</th></tr></thead><tbody>${sorted.map((m,i)=>`<tr><td>${i+1}</td><td>${esc(m.name)}</td><td>${esc(m.level||'—')}</td><td>${esc(m.points)}</td></tr>`).join('')}</tbody></table>`:'<div class="empty">O ranking aparecerá quando houver membros cadastrados.</div>';
+ $('eventList').innerHTML=data.events.length?[...data.events].reverse().map(e=>`<article class="event"><div><strong>${esc(e.name)}</strong><small>${esc(e.date||'Data não definida')} · ${esc(e.description||'Sem descrição')}</small></div></article>`).join(''):'<div class="empty">Nenhum evento cadastrado.</div>';
+}
+$('memberForm').addEventListener('submit',e=>{e.preventDefault();data.members.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),name:$('name').value.trim(),role:$('role').value,level:$('level').value,points:$('points').value||0,status:$('status').value,online:$('online').value,bio:$('bio').value.trim()});save();e.target.reset();$('points').value=0;alert('Membro adicionado neste aparelho.')});
+$('eventForm').addEventListener('submit',e=>{e.preventDefault();data.events.push({id:String(Date.now()),name:$('eventName').value.trim(),date:$('eventDate').value,description:$('eventDescription').value.trim()});save();e.target.reset();alert('Evento publicado neste aparelho.')});
+$('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='backup-alcatrazz.json';a.click();URL.revokeObjectURL(url)});
+$('clearBtn').addEventListener('click',()=>{if(confirm('Apagar todos os membros e eventos salvos neste aparelho? Exporte um backup antes.')){data={members:[],events:[]};save()}});
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const target=b.dataset.target;if(target==='inicio')$('home').scrollIntoView({behavior:'smooth'});else $(target).scrollIntoView({behavior:'smooth'})}));
+render();
+</script>
+</body></html>
